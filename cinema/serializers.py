@@ -30,8 +30,8 @@ class GenreSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=100)
 
-    def create(self, validated_date):
-        return Genre.objects.create(**validated_date)
+    def create(self, validated_data):
+        return Genre.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.name = validated_data.get("name", instance.name)
@@ -47,8 +47,8 @@ class CinemaHallSerializer(serializers.Serializer):
     rows = serializers.IntegerField()
     seats_in_row = serializers.IntegerField()
 
-    def create(self, validated_date):
-        return CinemaHall.objects.create(**validated_date)
+    def create(self, validated_data):
+        return CinemaHall.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.name = validated_data.get("name", instance.name)
